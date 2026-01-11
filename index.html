@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landshark Bar Scoreboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <p class="app__eyebrow">Landshark Bar</p>
+      <h1>Scoreboard for the Crew</h1>
+      <p class="app__lede">
+        Everyone starts at <strong>10 points</strong>. Enter the counts for each event and the totals update
+        automatically.
+      </p>
+    </header>
+
+    <section class="rules">
+      <h2>Scoring rules</h2>
+      <ul>
+        <li>Hook up with a coworker: <strong>-5</strong></li>
+        <li>Pick a door shift: <strong>+2</strong></li>
+        <li>Pick up a bartending shift: <strong>+1</strong></li>
+        <li>Don’t tip: <strong>-2</strong></li>
+        <li>Work a day bar: <strong>+1</strong></li>
+        <li>Hook up with someone at another bar: <strong>+1</strong></li>
+        <li>Send the group chat a dance-floor make-out video: <strong>+1</strong></li>
+        <li>Work a holiday shift: <strong>+1</strong></li>
+      </ul>
+    </section>
+
+    <section class="scoreboard">
+      <div class="scoreboard__header">
+        <h2>Team scores</h2>
+        <button class="button" id="add-member" type="button">Add coworker</button>
+      </div>
+
+      <div class="scoreboard__table" role="table" aria-label="Landshark bar scoring table">
+        <div class="scoreboard__row scoreboard__row--head" role="row">
+          <span role="columnheader">Coworker</span>
+          <span role="columnheader">Coworker hook ups</span>
+          <span role="columnheader">Door shifts</span>
+          <span role="columnheader">Bartending shifts</span>
+          <span role="columnheader">No tips</span>
+          <span role="columnheader">Day bar shifts</span>
+          <span role="columnheader">Other-bar hook ups</span>
+          <span role="columnheader">Make-out video</span>
+          <span role="columnheader">Holiday shifts</span>
+          <span role="columnheader">Total</span>
+          <span role="columnheader"></span>
+        </div>
+        <div id="scoreboard-body"></div>
+      </div>
+    </section>
+  </main>
+
+  <template id="score-row-template">
+    <div class="scoreboard__row" role="row">
+      <label class="field field--name">
+        <span class="sr-only">Coworker name</span>
+        <input type="text" placeholder="Name" class="field__input field__input--name" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Coworker hook ups</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="-5" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Door shifts</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="2" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Bartending shifts</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="1" />
+      </label>
+      <label class="field">
+        <span class="sr-only">No tips</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="-2" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Day bar shifts</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="1" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Other-bar hook ups</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="1" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Make-out video</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="1" />
+      </label>
+      <label class="field">
+        <span class="sr-only">Holiday shifts</span>
+        <input type="number" min="0" value="0" class="field__input" data-points="1" />
+      </label>
+      <span class="total" aria-live="polite">10</span>
+      <button class="button button--ghost" type="button" data-remove>Remove</button>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
